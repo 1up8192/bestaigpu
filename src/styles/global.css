@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme inline {
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+}
+
+@layer base {
+    html,
+    body {
+        @apply min-h-screen scroll-smooth bg-zinc-50 text-zinc-950 antialiased;
+    }
+
+    body {
+        text-rendering: optimizeLegibility;
+    }
+
+    pre,
+    code {
+        @apply font-mono;
+    }
+
+    ::selection {
+        @apply bg-emerald-200 text-zinc-950;
+    }
+}
+
+@utility debug {
+    border-width: 1px;
+    border-style: dashed;
+    border-color: #f87171;
+}

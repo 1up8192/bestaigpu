@@ -1,0 +1,31 @@
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Next.js
+.next/
+/out/
+next-env.d.ts
+.vercel
+*.tsbuildinfo
+
+# Tool output
+coverage/
+playwright-report/
+test-results/
+blob-report/
+.playwright/
+pnpm-exec-summary.json
+
+# Editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

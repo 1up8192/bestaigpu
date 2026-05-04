@@ -1,0 +1,42 @@
+name: Import GPU data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  import-gpus:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Import GPU data
+        run: pnpm import:gpus
+        env:
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+
+      - name: Commit updated GPU data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update GPU data"
+          file_pattern: src/data/gpus.json
