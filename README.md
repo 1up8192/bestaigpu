@@ -51,7 +51,7 @@ data/gpu-metrics.json
 - [MVP Plan](docs/mvp-prelim-plan.md)
 - [Implementation Plan](docs/impl-plan.md)
 - [Tech Plan](docs/tech.md)
-- [Cloudflare Pages Hosting Setup](docs/hosting-cloudflare-pages.md)
+- [Cloudflare Hosting Setup](docs/hosting-cloudflare-pages.md)
 - [Methodology](docs/methodology.md)
 - [Data Schema](docs/data-schema.md)
 - [GPU Sheet CSV Template](data/gpu-sheet-template.csv)

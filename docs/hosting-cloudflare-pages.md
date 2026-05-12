@@ -1,10 +1,10 @@
-# Cloudflare Pages Hosting Setup
+# Cloudflare Hosting Setup
 
-This project should launch on Cloudflare Pages Free as a static Next.js export, with GPU data updated by GitHub Actions from a published Google Sheet CSV.
+This project should launch on Cloudflare Workers static assets as a static Next.js export, with GPU data updated by GitHub Actions from a published Google Sheet CSV.
 
 Current stack:
 
-- Host: Cloudflare Pages Free
+- Host: Cloudflare Workers static assets
 - Domain: `bestaigpu.com`
 - App output: static Next.js export in `out/`
 - Data source: published Google Sheet CSV
@@ -13,10 +13,10 @@ Current stack:
 
 Official docs checked on 2026-05-12:
 
+- Cloudflare Workers Builds configuration: https://developers.cloudflare.com/workers/ci-cd/builds/configuration/
+- Cloudflare Workers static assets: https://developers.cloudflare.com/workers/static-assets/
+- Cloudflare Pages to Workers static assets migration: https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/
 - Cloudflare Pages static Next.js guide: https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/
-- Cloudflare Pages build configuration: https://developers.cloudflare.com/pages/configuration/build-configuration/
-- Cloudflare Pages build image: https://developers.cloudflare.com/pages/configuration/build-image/
-- Cloudflare Pages custom domains: https://developers.cloudflare.com/pages/configuration/custom-domains/
 - Next.js static export: https://nextjs.org/docs/pages/guides/static-exports
 - GitHub Actions secrets: https://docs.github.com/en/actions/security-for-github-actions/security-guides/about-secrets
 
@@ -91,24 +91,36 @@ In GitHub:
 
 The workflow also runs daily at `06:00 UTC`.
 
-## 5. Create the Cloudflare Pages project
+## 5. Create the Cloudflare Worker project
 
 In Cloudflare:
 
 1. Go to `Workers & Pages`.
 2. Select `Create application`.
-3. Select the `Pages` tab.
-4. Select `Import an existing Git repository`.
-5. Connect the GitHub repo.
-6. Choose the production branch.
+3. Select the Worker/Git repository setup flow.
+4. Connect the GitHub repo.
+5. Choose the production branch.
 
 Use these build settings:
 
 ```txt
-Framework preset: Next.js (Static HTML Export)
 Build command: pnpm build
-Build output directory: out
+Deploy command: pnpm deploy
+Non-production branch deploy command: pnpm deploy:preview
 Root directory: /
+```
+
+The deploy command uses `wrangler.jsonc`, which points Cloudflare to the static export in `out/`:
+
+```jsonc
+{
+    "name": "bestaigpu",
+    "compatibility_date": "2026-05-12",
+    "assets": {
+        "directory": "./out",
+        "not_found_handling": "404-page"
+    }
+}
 ```
 
 Set these environment variables for both production and preview unless intentionally different:
@@ -119,15 +131,15 @@ PNPM_VERSION=10.33.0
 NEXT_PUBLIC_BASE_URL=https://bestaigpu.com
 ```
 
-`SHEET_CSV_URL` does not need to be added to Cloudflare Pages because the hosted site reads checked-in JSON, not the sheet. The sheet import runs in GitHub Actions.
+`SHEET_CSV_URL` does not need to be added to Cloudflare because the hosted site reads checked-in JSON, not the sheet. The sheet import runs in GitHub Actions.
 
-## 6. Deploy once on the Pages preview URL
+## 6. Deploy once on the Workers preview URL
 
 Trigger the first Cloudflare deployment from the dashboard.
 
 After it finishes:
 
-1. Open the generated `*.pages.dev` URL.
+1. Open the generated `*.workers.dev` URL.
 2. Confirm the page loads.
 3. Confirm filters and table interactions work.
 4. Open `/sitemap.xml`.
@@ -137,7 +149,7 @@ If `/sitemap.xml` still uses `https://bestaigpu.com`, that is expected when `NEX
 
 ## 7. Add the production domain
 
-For the apex domain `bestaigpu.com`, Cloudflare requires the domain to be a Cloudflare zone on the same account as the Pages project.
+For the apex domain `bestaigpu.com`, Cloudflare requires the domain to be a Cloudflare zone on the same account as the Worker project.
 
 If the domain is not already on Cloudflare:
 
@@ -145,12 +157,12 @@ If the domain is not already on Cloudflare:
 2. Follow Cloudflare's nameserver instructions at the domain registrar.
 3. Wait for nameserver activation.
 
-Then attach the domain to Pages:
+Then attach the domain to the Worker:
 
 1. Open `Workers & Pages`.
-2. Select the Pages project.
-3. Go to `Custom domains`.
-4. Select `Set up a domain`.
+2. Select the Worker.
+3. Go to `Settings > Domains & Routes`.
+4. Add a custom domain or route.
 5. Enter `bestaigpu.com`.
 6. Continue and activate.
 
@@ -208,16 +220,16 @@ For data-only updates:
 Edit Google Sheet
 → GitHub Actions daily/manual import runs
 → data/gpu-metrics.json is committed if changed
-→ Cloudflare Pages sees the commit
-→ Cloudflare rebuilds and redeploys the static site
+→ Cloudflare Workers Builds sees the commit
+→ Cloudflare rebuilds and redeploys the static assets
 ```
 
 For code updates:
 
 ```txt
 Push to production branch
-→ Cloudflare Pages builds
-→ out/ is deployed
+→ Cloudflare Workers Builds runs `pnpm build`
+→ `pnpm deploy` uploads `out/` as static assets
 ```
 
 ## Troubleshooting
@@ -245,4 +257,4 @@ If the domain does not activate, check:
 
 - `bestaigpu.com` is active as a Cloudflare zone.
 - The registrar nameservers point to Cloudflare.
-- The Pages custom domain was added under the same Cloudflare account as the zone.
+- The Worker custom domain was added under the same Cloudflare account as the zone.
