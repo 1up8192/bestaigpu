@@ -1,0 +1,12 @@
+slug,new_price_usd,used_price_usd,price_mode,price_source_url,price_last_checked,tokens_per_second,tokens_source_url,tokens_confidence
+rtx-3090,,700,used,,2026-05-04,42,,estimated
+rtx-4090,1800,1550,new_or_used,,2026-05-04,65,,estimated
+rx-7900-xtx,900,750,new_or_used,,2026-05-04,32,,estimated
+tesla-p40,,200,used,,2026-05-04,14,,estimated
+arc-pro-b70,949,,new,https://www.bhphotovideo.com/c/product/1959142-REG/intel_33p01ib0bb_arc_pro_b70_32gb.html,2026-05-04,24,,needs_verification
+rtx-4060-ti-16gb,430,350,new_or_used,,2026-05-04,21,,estimated
+rtx-5090,2200,,new,https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/,2026-05-04,92,,estimated
+rtx-3060-12gb,280,200,new_or_used,https://nvidianews.nvidia.com/news/nvidia-introduces-geforce-rtx-3060-next-generation-of-the-worlds-most-popular-gpu,2026-05-04,15,,estimated
+rtx-6000-ada,6800,5400,new_or_used,https://www.nvidia.com/en-us/products/workstations/rtx-6000/,2026-05-04,70,,estimated
+a100-40gb,,6500,used,https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/A100-PCIE-Prduct-Brief.pdf,2026-05-04,78,,estimated
+arc-pro-b60,650,,new,https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2026-03/datasheet-b60-gpu.pdf,2026-05-04,18,,needs_verification

@@ -13,9 +13,9 @@ Run `pnpm dev` after each step and verify before moving on.
   - [x] Zod enums for all categorical fields (`vendor`, `category`, `qwen_fit`, `software_support`, `noise_level`, `beginner_pain`, `hardware_pain`, `tokens_confidence`, `price_mode`)
   - [x] Zod object schema for `GPU` with all required fields (nullable numbers where data may be missing)
   - [x] Include optional detail fields used by expanded rows: `strengths`, `software_headaches`, `hardware_headaches`, `notes`
-  - [x] Keep score fields out of `gpus.json`; `raw_value_score` and `practical_value_score` are derived in `scoring.ts`
+  - [x] Keep score fields out of data files; `raw_value_score` and `practical_value_score` are derived in `scoring.ts`
   - [x] Export inferred `GPU` type via `z.infer<typeof GpuSchema>`
-- [x] Write `src/data/gpus.json` — first 5–6 rows
+- [x] Write initial GPU data — first 5–6 rows
   - [x] RTX 3090 (used ~$700, community-sourced tps)
   - [x] RTX 4090 (new ~$1800, community-sourced tps)
   - [x] RX 7900 XTX (new, ROCm)
@@ -23,7 +23,7 @@ Run `pnpm dev` after each step and verify before moving on.
   - [x] Arc Pro B70 32GB
   - [x] RTX 4060 Ti 16GB
 - [x] Update `src/app/page.tsx`
-  - [x] Import and parse `gpus.json` with Zod at module level (build fails on bad data)
+  - [x] Import and parse GPU data with Zod at module level (build fails on bad data)
   - [x] Replace hardcoded `tablePreview` with real parsed rows
   - [x] Keep existing static `<table>` markup — just drive it with real data
 
@@ -168,7 +168,7 @@ Run `pnpm dev` after each step and verify before moving on.
 
 **Visible result:** complete table. Filters become meaningful. Score differences are obvious.
 
-- [x] Add remaining GPU rows to `src/data/gpus.json`
+- [x] Add remaining GPU rows to the data files
   - [x] RTX 5090 32GB
   - [x] RTX 3060 12GB
   - [x] RTX 6000 Ada 48GB
@@ -183,14 +183,14 @@ Run `pnpm dev` after each step and verify before moving on.
 
 ## Step 10 — Import script → data update flow works end-to-end
 
-**Visible result:** `pnpm import:gpus` fetches the Google Sheet and overwrites `gpus.json`. Page rebuilds with fresh data.
+**Visible result:** `pnpm import:gpus` fetches the Google Sheet and overwrites `data/gpu-metrics.json`. Page rebuilds with fresh data.
 
 - [x] Write `scripts/import-gpus.ts`
   - [x] Fetch published Google Sheets CSV from `SHEET_CSV_URL` env var
   - [x] Parse CSV rows with a real CSV parser such as `csv-parse` or `papaparse` (handle empty cells, quoted commas, trim whitespace, coerce types)
   - [x] Normalize values (lowercase enums, parse numbers, convert dates)
   - [x] Validate each row with Zod — throw on invalid required fields, warn on missing optional
-  - [x] Write validated array to `src/data/gpus.json`
+  - [x] Write validated array to `data/gpu-metrics.json`
   - [x] Print summary: rows imported and warnings
   - [x] Fail the import on bad rows; do not silently skip invalid data
 - [x] Add `.env.example` with `SHEET_CSV_URL=` placeholder
@@ -208,7 +208,7 @@ Run `pnpm dev` after each step and verify before moving on.
 - [ ] Create Cloudflare Pages project, connect repo
 - [ ] Set Cloudflare Pages environment variables (`NEXT_PUBLIC_BASE_URL`, `NODE_VERSION`, `PNPM_VERSION`)
 - [x] Write `.github/workflows/import-gpus.yml`
-  - [x] Add `permissions: contents: write` so the workflow can commit updated `gpus.json`
+  - [x] Add `permissions: contents: write` so the workflow can commit updated metrics JSON
   - [x] Triggers: `workflow_dispatch` + `schedule: cron: "0 6 * * *"`
   - [x] Steps: checkout → pnpm install → run `pnpm import:gpus` → commit changed JSON if diff → push
   - [ ] Add `SHEET_CSV_URL` as GitHub repository secret

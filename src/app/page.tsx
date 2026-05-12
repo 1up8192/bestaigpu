@@ -1,18 +1,16 @@
-import { GpuExplorer } from "#/components/gpu-table/GpuExplorer";
-import { AsciiLogo } from "#/components/layout/AsciiLogo";
-import { ThemeToggle } from "#/components/layout/ThemeToggle";
-import { MethodologySection } from "#/components/MethodologySection";
-import gpusJson from "#/data/gpus.json";
-import { GpusSchema } from "#/lib/data-schema";
-import { scoreGpus } from "#/lib/scoring";
+import { GpuExplorer } from '#/components/gpu-table/GpuExplorer'
+import { AsciiLogo } from '#/components/layout/AsciiLogo'
+import { ThemeToggle } from '#/components/layout/ThemeToggle'
+import { MethodologySection } from '#/components/MethodologySection'
+import { gpus } from '#/lib/gpu-data'
+import { scoreGpus } from '#/lib/scoring'
 
-const parsedGpus = GpusSchema.parse(gpusJson);
-const scoredGpus = [...scoreGpus(parsedGpus)].sort((a, b) => {
-  const aScore = a.practical_value_score ?? Number.NEGATIVE_INFINITY;
-  const bScore = b.practical_value_score ?? Number.NEGATIVE_INFINITY;
+const scoredGpus = [...scoreGpus(gpus)].sort((a, b) => {
+  const aScore = a.practical_value_score ?? Number.NEGATIVE_INFINITY
+  const bScore = b.practical_value_score ?? Number.NEGATIVE_INFINITY
 
-  return bScore - aScore;
-});
+  return bScore - aScore
+})
 
 export default function Page() {
   return (
@@ -26,8 +24,8 @@ export default function Page() {
           <AsciiLogo />
 
           <p className="mb-3 text-[var(--color-line)]">
-            {"="}
-            {"=".repeat(78)}
+            {'='}
+            {'='.repeat(78)}
           </p>
           <p className="font-semibold text-[var(--color-accent)] text-sm uppercase tracking-[2px]">
             GPU VALUE INDEX
@@ -47,5 +45,5 @@ export default function Page() {
       </div>
       <MethodologySection gpus={scoredGpus} />
     </main>
-  );
+  )
 }

@@ -82,17 +82,18 @@ The site should feel practical, trustworthy, and fast.
 
 ## Data Source
 
-The source of truth for MVP data is Google Sheets.
+The source of truth for volatile MVP data is Google Sheets.
 
-The app itself reads from a generated static JSON file:
+The app composes static GPU facts and sheet-managed metrics from:
 
 ```txt
-src/data/gpus.json
+data/gpu-static.json
+data/gpu-metrics.json
 ```
 
-Google Sheets is used because it is easy to edit manually while the dataset is small.
+Google Sheets is used for prices and throughput because those values are easy to edit manually while the dataset is small.
 
-Local development can run without sheet access because `src/data/gpus.json` is checked in. To refresh local data from the sheet, set `SHEET_CSV_URL` in `.env.local` and run `pnpm import:gpus` or `pnpm dev:sheet`.
+Local development can run without sheet access because both JSON files are checked in. To refresh local metrics from the sheet, set `SHEET_CSV_URL` in `.env.local` and run `pnpm import:gpus` or `pnpm dev:sheet`.
 
 ## Data Update Flow
 
@@ -103,8 +104,8 @@ Google Sheet
 → published CSV
 → GitHub Actions scheduled workflow
 → import script fetches CSV
-→ Zod validates rows
-→ writes src/data/gpus.json
+→ Zod validates metric rows
+→ writes data/gpu-metrics.json
 → commits changed JSON
 → hosting provider redeploys
 ```
@@ -152,9 +153,8 @@ Responsibilities:
 * Fetch published Google Sheet CSV
 * Parse CSV rows
 * Normalize values
-* Validate rows with Zod
-* Calculate derived fields if needed
-* Write `src/data/gpus.json`
+* Validate metric rows with Zod
+* Write `data/gpu-metrics.json`
 * Fail loudly on invalid data
 
 The script should not silently ignore bad rows.
@@ -231,9 +231,6 @@ The site should also show raw tokens/s per dollar for transparency.
       layout/
         Header.tsx
         Footer.tsx
-
-    data/
-      gpus.json
 
     lib/
       data-schema.ts

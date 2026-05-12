@@ -1,8 +1,6 @@
-import gpusJson from "#/data/gpus.json";
-import { GpusSchema } from "#/lib/data-schema";
+import { gpus } from '#/lib/gpu-data'
 
-const gpus = GpusSchema.parse(gpusJson);
-const lastUpdated = gpus.map((gpu) => gpu.price_last_checked).sort((a, b) => b.localeCompare(a))[0];
+const lastUpdated = gpus.map((gpu) => gpu.price_last_checked).sort((a, b) => b.localeCompare(a))[0]
 
 export function Footer() {
   return (
@@ -18,5 +16,5 @@ export function Footer() {
         </nav>
       </div>
     </footer>
-  );
+  )
 }

@@ -65,6 +65,32 @@ export const GpuSchema = z.object({
 
 export const GpusSchema = z.array(GpuSchema)
 
+export const GpuMetricsSchema = GpuSchema.pick({
+  slug: true,
+  new_price_usd: true,
+  used_price_usd: true,
+  price_mode: true,
+  price_source_url: true,
+  price_last_checked: true,
+  tokens_per_second: true,
+  tokens_source_url: true,
+  tokens_confidence: true,
+})
+
+export const GpuStaticSchema = GpuSchema.omit({
+  new_price_usd: true,
+  used_price_usd: true,
+  price_mode: true,
+  price_source_url: true,
+  price_last_checked: true,
+  tokens_per_second: true,
+  tokens_source_url: true,
+  tokens_confidence: true,
+})
+
+export const GpuMetricsListSchema = z.array(GpuMetricsSchema)
+export const GpuStaticListSchema = z.array(GpuStaticSchema)
+
 export type Vendor = z.infer<typeof VendorSchema>
 export type Category = z.infer<typeof CategorySchema>
 export type PriceMode = z.infer<typeof PriceModeSchema>
@@ -75,3 +101,5 @@ export type NoiseLevel = z.infer<typeof NoiseLevelSchema>
 export type BeginnerPain = z.infer<typeof BeginnerPainSchema>
 export type HardwarePain = z.infer<typeof HardwarePainSchema>
 export type GPU = z.infer<typeof GpuSchema>
+export type GpuMetrics = z.infer<typeof GpuMetricsSchema>
+export type GpuStatic = z.infer<typeof GpuStaticSchema>

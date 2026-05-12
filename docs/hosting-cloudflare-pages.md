@@ -9,7 +9,7 @@ Current stack:
 - App output: static Next.js export in `out/`
 - Data source: published Google Sheet CSV
 - Data import: `.github/workflows/import-gpus.yml`
-- Generated data file: `src/data/gpus.json`
+- Generated data file: `data/gpu-metrics.json`
 
 Official docs checked on 2026-05-12:
 
@@ -39,8 +39,10 @@ Keep this URL private enough for editing workflow purposes, but do not treat it 
 Create a local `.env.local` file:
 
 ```sh
-SHEET_CSV_URL="https://docs.google.com/spreadsheets/d/..."
+SHEET_CSV_URL="https://docs.google.com/spreadsheets/d/<sheet-id>/export?format=csv&gid=<tab-gid>"
 ```
+
+Do not use the normal Google Sheets `/edit` URL. The importer needs CSV, not the spreadsheet HTML page. A published CSV URL also works if you use `File > Share > Publish to web` and choose CSV output for the metrics tab.
 
 Run:
 
@@ -53,11 +55,11 @@ pnpm build
 
 Expected result:
 
-- `pnpm import:gpus` updates `src/data/gpus.json`.
+- `pnpm import:gpus` updates `data/gpu-metrics.json`.
 - Validation fails loudly if the sheet has invalid rows.
 - `pnpm build` creates a static export in `out/`.
 
-For normal local development, the sheet is optional. `pnpm dev` uses the checked-in fallback dataset at `src/data/gpus.json`. If you want to refresh from Sheets and then start the dev server, use:
+For normal local development, the sheet is optional. `pnpm dev` uses checked-in data from `data/gpu-static.json` and `data/gpu-metrics.json`. If you want to refresh from Sheets and then start the dev server, use:
 
 ```sh
 pnpm dev:sheet
@@ -85,7 +87,7 @@ In GitHub:
 3. Select `Run workflow`.
 4. Run it on the production branch.
 5. Confirm the workflow succeeds.
-6. Confirm it commits `src/data/gpus.json` only when the imported data changed.
+6. Confirm it commits `data/gpu-metrics.json` only when the imported data changed.
 
 The workflow also runs daily at `06:00 UTC`.
 
@@ -117,7 +119,7 @@ PNPM_VERSION=10.33.0
 NEXT_PUBLIC_BASE_URL=https://bestaigpu.com
 ```
 
-`SHEET_CSV_URL` does not need to be added to Cloudflare Pages because the hosted site reads `src/data/gpus.json`, not the sheet. The sheet import runs in GitHub Actions.
+`SHEET_CSV_URL` does not need to be added to Cloudflare Pages because the hosted site reads checked-in JSON, not the sheet. The sheet import runs in GitHub Actions.
 
 ## 6. Deploy once on the Pages preview URL
 
@@ -205,7 +207,7 @@ For data-only updates:
 ```txt
 Edit Google Sheet
 → GitHub Actions daily/manual import runs
-→ src/data/gpus.json is committed if changed
+→ data/gpu-metrics.json is committed if changed
 → Cloudflare Pages sees the commit
 → Cloudflare rebuilds and redeploys the static site
 ```

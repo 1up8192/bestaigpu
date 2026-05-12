@@ -7,18 +7,38 @@ MVP data is maintained in Google Sheets.
 The import script converts the sheet into:
 
 ```txt
-src/data/gpus.json
+data/gpu-metrics.json
 ```
 
-The frontend should only read from the generated JSON.
+Static GPU facts are maintained in:
+
+```txt
+data/gpu-static.json
+```
+
+The frontend composes both files and validates the combined GPU rows.
 
 CSV template:
 
 ```txt
-docs/gpu-sheet-template.csv
+data/gpu-sheet-template.csv
 ```
 
 ## Required GPU Fields
+
+```txt
+slug
+new_price_usd
+used_price_usd
+price_mode
+price_source_url
+price_last_checked
+tokens_per_second
+tokens_source_url
+tokens_confidence
+```
+
+## Static GPU Fields
 
 ```txt
 slug
@@ -28,14 +48,6 @@ category
 vram_gb
 memory_bandwidth_gbps
 power_w
-new_price_usd
-used_price_usd
-price_mode
-price_source_url
-price_last_checked
-tokens_per_second
-tokens_source_url
-tokens_confidence
 qwen_fit
 software_support
 noise_level
@@ -198,10 +210,9 @@ The import script should:
 * Fetch the published Google Sheet CSV
 * Parse rows
 * Normalize numbers
-* Validate with Zod
+* Validate metric rows with Zod
 * Fail on invalid required fields
-* Write `src/data/gpus.json`
+* Write `data/gpu-metrics.json`
 * Preserve source URLs and confidence labels
-* Use semicolon-separated values for list fields such as `strengths`
 
 Bad data should fail loudly.

@@ -34,9 +34,10 @@ jobs:
         run: pnpm import:gpus
         env:
           SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+          GPU_IMPORT_OUTPUT_PATH: data/gpu-metrics.json
 
       - name: Commit updated GPU data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update GPU data"
-          file_pattern: src/data/gpus.json
+          file_pattern: data/gpu-metrics.json

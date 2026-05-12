@@ -19,7 +19,7 @@ pnpm dev
 
 The app runs at `http://localhost:3000`.
 
-By default, local development uses the checked-in fallback dataset at `src/data/gpus.json`.
+By default, local development uses checked-in static data from `data/gpu-static.json` and sheet-managed metrics from `data/gpu-metrics.json`.
 
 To refresh local data from the Google Sheet first, create `.env.local` with `SHEET_CSV_URL`, then run:
 
@@ -37,12 +37,12 @@ pnpm build
 
 ## Data
 
-GPU data is maintained in Google Sheets, imported into static JSON, and validated before use.
+GPU prices and throughput are maintained in Google Sheets, imported into static JSON, and validated before use. Static GPU facts live in `data/gpu-static.json`.
 
-The planned generated data file is:
+The generated metrics data file is:
 
 ```txt
-src/data/gpus.json
+data/gpu-metrics.json
 ```
 
 ## Docs
@@ -54,7 +54,7 @@ src/data/gpus.json
 - [Cloudflare Pages Hosting Setup](docs/hosting-cloudflare-pages.md)
 - [Methodology](docs/methodology.md)
 - [Data Schema](docs/data-schema.md)
-- [GPU Sheet CSV Template](docs/gpu-sheet-template.csv)
+- [GPU Sheet CSV Template](data/gpu-sheet-template.csv)
 - [Content and SEO](docs/content-and-seo.md)
 - [Future Plans](docs/future-plans.md)
 
