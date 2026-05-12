@@ -41,6 +41,22 @@ export function formatScore(n: number | null): string {
   }).format(n)
 }
 
+export function formatValueScore(n: number | null): string {
+  if (n === null) {
+    return '-'
+  }
+
+  const scaled = n * 100
+  if (scaled > 0 && scaled < 0.05) {
+    return '< 0.1'
+  }
+
+  return new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(scaled)
+}
+
 export function formatInteger(n: number | null): string {
   if (n === null) {
     return '-'

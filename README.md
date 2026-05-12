@@ -19,6 +19,14 @@ pnpm dev
 
 The app runs at `http://localhost:3000`.
 
+By default, local development uses the checked-in fallback dataset at `src/data/gpus.json`.
+
+To refresh local data from the Google Sheet first, create `.env.local` with `SHEET_CSV_URL`, then run:
+
+```sh
+pnpm dev:sheet
+```
+
 Useful checks:
 
 ```sh
@@ -43,8 +51,10 @@ src/data/gpus.json
 - [MVP Plan](docs/mvp-prelim-plan.md)
 - [Implementation Plan](docs/impl-plan.md)
 - [Tech Plan](docs/tech.md)
+- [Cloudflare Pages Hosting Setup](docs/hosting-cloudflare-pages.md)
 - [Methodology](docs/methodology.md)
 - [Data Schema](docs/data-schema.md)
+- [GPU Sheet CSV Template](docs/gpu-sheet-template.csv)
 - [Content and SEO](docs/content-and-seo.md)
 - [Future Plans](docs/future-plans.md)
 

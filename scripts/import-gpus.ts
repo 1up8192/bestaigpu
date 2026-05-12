@@ -3,6 +3,8 @@ import path from 'node:path'
 import { parse } from 'csv-parse/sync'
 import { type GPU, GpuSchema } from '../src/lib/data-schema'
 
+await loadLocalEnv()
+
 const SHEET_CSV_URL = process.env.SHEET_CSV_URL
 const OUTPUT_PATH = process.env.GPU_IMPORT_OUTPUT_PATH || 'src/data/gpus.json'
 
@@ -40,6 +42,56 @@ const enumFields = new Set<keyof GPU>([
   'beginner_pain',
   'hardware_pain',
 ])
+
+async function loadLocalEnv() {
+  for (const filename of ['.env.local', '.env']) {
+    const envPath = path.resolve(process.cwd(), filename)
+
+    try {
+      const contents = await readFile(envPath, 'utf8')
+      loadEnvContents(contents)
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
+        throw error
+      }
+    }
+  }
+}
+
+function loadEnvContents(contents: string) {
+  for (const line of contents.split(/\r?\n/)) {
+    const trimmed = line.trim()
+
+    if (!trimmed || trimmed.startsWith('#')) {
+      continue
+    }
+
+    const match = /^([\w.-]+)\s*=\s*(.*)$/.exec(trimmed)
+
+    if (!match) {
+      continue
+    }
+
+    const [, key, rawValue] = match
+
+    if (process.env[key] !== undefined) {
+      continue
+    }
+
+    process.env[key] = stripEnvQuotes(rawValue)
+  }
+}
+
+function stripEnvQuotes(value: string) {
+  const trimmed = value.trim()
+  const quote = trimmed[0]
+
+  if ((quote === '"' || quote === "'") && trimmed.endsWith(quote)) {
+    return trimmed.slice(1, -1)
+  }
+
+  return trimmed
+}
 
 async function main() {
   if (!SHEET_CSV_URL) {

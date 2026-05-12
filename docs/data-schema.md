@@ -12,6 +12,12 @@ src/data/gpus.json
 
 The frontend should only read from the generated JSON.
 
+CSV template:
+
+```txt
+docs/gpu-sheet-template.csv
+```
+
 ## Required GPU Fields
 
 ```txt
@@ -59,6 +65,9 @@ gaming_too
 affiliate_new_url
 affiliate_used_url
 image_url
+strengths
+software_headaches
+hardware_headaches
 notes
 ```
 
@@ -193,5 +202,6 @@ The import script should:
 * Fail on invalid required fields
 * Write `src/data/gpus.json`
 * Preserve source URLs and confidence labels
+* Use semicolon-separated values for list fields such as `strengths`
 
 Bad data should fail loudly.

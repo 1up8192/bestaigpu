@@ -1,7 +1,12 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { applyFilters, countActiveFilters, defaultFilterState, type FilterState } from '#/lib/filters'
+import {
+  applyFilters,
+  countActiveFilters,
+  defaultFilterState,
+  type FilterState,
+} from '#/lib/filters'
 import { type ScoredGPU, scoreGpus } from '#/lib/scoring'
 import { FilterBar } from './FilterBar'
 import { GpuTable } from './GpuTable'

@@ -1,4 +1,7 @@
-import { RotateCcw } from 'lucide-react'
+'use client'
+
+import { ChevronDown, RotateCcw, SlidersHorizontal } from 'lucide-react'
+import { useState } from 'react'
 import { cn } from '#/lib/cn'
 import {
   defaultFilterState,
@@ -46,80 +49,114 @@ const vramOptions = [
   { value: '12', label: '12GB' },
 ] as const satisfies ReadonlyArray<{ value: VramFilter; label: string }>
 
-export function FilterBar({ filters, activeFilterCount, resultCount, totalCount, onChange }: FilterBarProps) {
-  return (
-    <div className="mb-5 space-y-4 rounded-lg border border-zinc-200 bg-white p-4">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="font-medium text-sm text-zinc-950">
-            Showing {resultCount} of {totalCount} GPUs
-          </p>
-          <p className="mt-1 text-sm text-zinc-500">
-            Default view is 24GB+ for the Qwen3.6-27B scoring target.
-          </p>
-        </div>
+export function FilterBar({
+  filters,
+  activeFilterCount,
+  resultCount,
+  totalCount,
+  onChange,
+}: FilterBarProps) {
+  const [isOpen, setIsOpen] = useState(false)
 
-        <button
-          type="button"
-          className="inline-flex w-fit items-center gap-2 rounded-md border border-zinc-200 px-3 py-2 font-medium text-sm text-zinc-700 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50"
-          disabled={activeFilterCount === 0}
-          onClick={() => onChange(defaultFilterState)}
-        >
-          <RotateCcw aria-hidden="true" size={15} />
-          Clear filters
-          {activeFilterCount > 0 ? (
-            <span className="rounded bg-zinc-100 px-1.5 py-0.5 text-xs">{activeFilterCount}</span>
-          ) : null}
-        </button>
+  return (
+    <div className="mb-6">
+      <div className="flex items-center justify-between gap-3 py-3">
+        <p className="text-[var(--color-text-dim)] text-sm">
+          <span className="text-[var(--color-green)]">&gt;</span> Showing{' '}
+          <span className="font-medium text-[var(--color-text-bright)]">{resultCount}</span> of{' '}
+          {totalCount} GPUs
+        </p>
+
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            className={cn(
+              'inline-flex items-center gap-1.5 border px-2.5 py-1.5 font-medium text-sm transition-colors',
+              isOpen
+                ? 'border-[var(--color-green)] bg-transparent text-[var(--color-text-bright)]'
+                : 'border-[var(--color-line)] bg-transparent text-[var(--color-text)] hover:border-[var(--color-text-dim)] hover:text-[var(--color-text-bright)]'
+            )}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <SlidersHorizontal aria-hidden="true" size={13} />
+            Filters
+            <ChevronDown
+              aria-hidden="true"
+              size={13}
+              className={cn('transition-transform', isOpen && 'rotate-180')}
+            />
+          </button>
+        </div>
       </div>
 
-      <FilterGroup label="Beginner fit">
-        {beginnerOptions.map((option) => (
-          <FilterButton
-            key={option.value}
-            active={filters.beginnerMode === option.value}
-            onClick={() => onChange({ ...filters, beginnerMode: option.value })}
-          >
-            {option.label}
-          </FilterButton>
-        ))}
-      </FilterGroup>
+      {isOpen && (
+        <div className="space-y-3 border-[var(--color-line)] border-t py-3">
+          <FilterGroup label="Beginner fit">
+            {beginnerOptions.map((option) => (
+              <FilterButton
+                key={option.value}
+                active={filters.beginnerMode === option.value}
+                onClick={() => onChange({ ...filters, beginnerMode: option.value })}
+              >
+                {option.label}
+              </FilterButton>
+            ))}
+          </FilterGroup>
 
-      <FilterGroup label="Price basis">
-        {priceBasisOptions.map((option) => (
-          <FilterButton
-            key={option.value}
-            active={filters.priceBasis === option.value}
-            onClick={() => onChange({ ...filters, priceBasis: option.value })}
-          >
-            {option.label}
-          </FilterButton>
-        ))}
-      </FilterGroup>
+          <FilterGroup label="Price basis">
+            {priceBasisOptions.map((option) => (
+              <FilterButton
+                key={option.value}
+                active={filters.priceBasis === option.value}
+                onClick={() => onChange({ ...filters, priceBasis: option.value })}
+              >
+                {option.label}
+              </FilterButton>
+            ))}
+          </FilterGroup>
 
-      <FilterGroup label="Price">
-        {priceOptions.map((option) => (
-          <FilterButton
-            key={option.value}
-            active={filters.priceBracket === option.value}
-            onClick={() => onChange({ ...filters, priceBracket: option.value })}
-          >
-            {option.label}
-          </FilterButton>
-        ))}
-      </FilterGroup>
+          <FilterGroup label="Price">
+            {priceOptions.map((option) => (
+              <FilterButton
+                key={option.value}
+                active={filters.priceBracket === option.value}
+                onClick={() => onChange({ ...filters, priceBracket: option.value })}
+              >
+                {option.label}
+              </FilterButton>
+            ))}
+          </FilterGroup>
 
-      <FilterGroup label="VRAM">
-        {vramOptions.map((option) => (
-          <FilterButton
-            key={option.value}
-            active={filters.vram === option.value}
-            onClick={() => onChange({ ...filters, vram: option.value })}
-          >
-            {option.label}
-          </FilterButton>
-        ))}
-      </FilterGroup>
+          <FilterGroup label="VRAM">
+            {vramOptions.map((option) => (
+              <FilterButton
+                key={option.value}
+                active={filters.vram === option.value}
+                onClick={() => onChange({ ...filters, vram: option.value })}
+              >
+                {option.label}
+              </FilterButton>
+            ))}
+          </FilterGroup>
+
+          <div className="border-[var(--color-line)] border-t pt-3">
+            <button
+              type="button"
+              className="inline-flex items-center gap-1.5 border border-[var(--color-line)] px-2.5 py-1.5 text-[var(--color-text)] text-sm hover:border-[var(--color-text-dim)] hover:text-[var(--color-text-bright)] disabled:cursor-not-allowed disabled:opacity-40"
+              disabled={activeFilterCount === 0}
+              onClick={() => onChange(defaultFilterState)}
+            >
+              <RotateCcw aria-hidden="true" size={13} />
+              Clear filters
+              {activeFilterCount > 0 ? (
+                <span className="px-1 py-0.5 font-medium text-[var(--color-green)] text-xs">
+                  {activeFilterCount}
+                </span>
+              ) : null}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -127,8 +164,10 @@ export function FilterBar({ filters, activeFilterCount, resultCount, totalCount,
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-      <p className="w-28 shrink-0 font-medium text-sm text-zinc-600">{label}</p>
-      <div className="flex flex-wrap gap-2">{children}</div>
+      <p className="w-28 shrink-0 text-[var(--color-accent)] text-sm uppercase tracking-[2px]">
+        {label}
+      </p>
+      <div className="flex flex-wrap gap-1.5">{children}</div>
     </div>
   )
 }
@@ -146,10 +185,10 @@ function FilterButton({
     <button
       type="button"
       className={cn(
-        'rounded-md border px-3 py-1.5 font-medium text-sm transition-colors',
+        'border px-2.5 py-1 text-sm transition-colors',
         active
-          ? 'border-emerald-700 bg-emerald-100 text-emerald-950'
-          : 'border-zinc-200 bg-white text-zinc-700 hover:bg-zinc-50'
+          ? 'border-[var(--color-green)] bg-transparent font-medium text-[var(--color-green)]'
+          : 'border-[var(--color-line)] bg-transparent text-[var(--color-text)] hover:border-[var(--color-text-dim)] hover:text-[var(--color-text-bright)]'
       )}
       onClick={onClick}
     >

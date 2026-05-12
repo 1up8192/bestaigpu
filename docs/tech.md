@@ -21,7 +21,11 @@ Core stack:
 
 Deployment:
 
-- Vercel or Cloudflare Pages
+- Cloudflare Pages Free
+
+Hosting setup:
+
+- See `docs/hosting-cloudflare-pages.md`
 
 Analytics:
 
@@ -87,6 +91,8 @@ src/data/gpus.json
 ```
 
 Google Sheets is used because it is easy to edit manually while the dataset is small.
+
+Local development can run without sheet access because `src/data/gpus.json` is checked in. To refresh local data from the sheet, set `SHEET_CSV_URL` in `.env.local` and run `pnpm import:gpus` or `pnpm dev:sheet`.
 
 ## Data Update Flow
 

@@ -2,34 +2,34 @@ import { cn } from '#/lib/cn'
 import type { BeginnerPain, QwenFit, SoftwareSupport, TokensConfidence } from '#/lib/data-schema'
 
 const fitStyles = {
-  excellent: 'bg-emerald-100 text-emerald-900 ring-emerald-200',
-  good: 'bg-lime-100 text-lime-900 ring-lime-200',
-  tight: 'bg-amber-100 text-amber-950 ring-amber-200',
-  barely: 'bg-orange-100 text-orange-950 ring-orange-200',
-  no: 'bg-red-100 text-red-900 ring-red-200',
+  excellent: 'text-[var(--color-green)]',
+  good: 'text-[var(--color-green)]',
+  tight: 'text-[var(--color-yellow)]',
+  barely: 'text-[var(--color-accent)]',
+  no: 'text-[var(--color-text-dim)]',
 } satisfies Record<QwenFit, string>
 
 const softwareStyles = {
-  excellent: 'bg-emerald-100 text-emerald-900 ring-emerald-200',
-  good: 'bg-sky-100 text-sky-900 ring-sky-200',
-  okay: 'bg-zinc-100 text-zinc-800 ring-zinc-200',
-  improving: 'bg-violet-100 text-violet-900 ring-violet-200',
-  painful: 'bg-red-100 text-red-900 ring-red-200',
+  excellent: 'text-[var(--color-green)]',
+  good: 'text-[var(--color-link)]',
+  okay: 'text-[var(--color-text)]',
+  improving: 'text-[var(--color-yellow)]',
+  painful: 'text-[var(--color-accent)]',
 } satisfies Record<SoftwareSupport, string>
 
 const painStyles = {
-  low: 'bg-emerald-100 text-emerald-900 ring-emerald-200',
-  medium: 'bg-yellow-100 text-yellow-950 ring-yellow-200',
-  high: 'bg-orange-100 text-orange-950 ring-orange-200',
-  trap: 'bg-red-100 text-red-900 ring-red-200',
+  low: 'text-[var(--color-green)]',
+  medium: 'text-[var(--color-yellow)]',
+  high: 'text-[var(--color-accent)]',
+  trap: 'text-[var(--color-accent)]',
 } satisfies Record<BeginnerPain, string>
 
 const confidenceStyles = {
-  measured: 'bg-emerald-600',
-  community_sourced: 'bg-sky-600',
-  estimated: 'bg-amber-500',
-  spec_derived: 'bg-violet-500',
-  needs_verification: 'border border-zinc-500 bg-transparent',
+  measured: 'bg-[var(--color-green)]',
+  community_sourced: 'bg-[var(--color-link)]',
+  estimated: 'bg-[var(--color-yellow)]',
+  spec_derived: 'bg-[var(--color-accent)]',
+  needs_verification: 'border border-[var(--color-text-dim)] bg-transparent',
 } satisfies Record<TokensConfidence, string>
 
 interface BadgeProps {
@@ -41,7 +41,7 @@ function Badge({ children, className }: BadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-md px-2 py-1 font-medium text-xs capitalize ring-1 ring-inset',
+        'inline-flex items-center font-medium text-xs capitalize before:text-[var(--color-text-dim)] before:content-["["] after:text-[var(--color-text-dim)] after:content-["]"]',
         className
       )}
     >

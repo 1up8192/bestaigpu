@@ -1,0 +1,309 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - heading "Best value GPUs for local AI." [level=1] [ref=e5]
+        - paragraph [ref=e6]: "Compare GPUs by practical inference value: price, VRAM, model fit, software support, power, noise, and beginner pain. Default view starts at 24GB+ for the Qwen3.6-27B scoring target."
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Showing 9 of 11 GPUs
+        - generic [ref=e10]:
+          - button "Clear" [disabled] [ref=e11]:
+            - img [ref=e12]
+            - text: Clear
+          - button "Filters" [ref=e15]:
+            - img [ref=e16]
+            - text: Filters
+            - img [ref=e17]
+      - table [ref=e20]:
+        - rowgroup [ref=e21]:
+          - row "GPU VRAM New price Used price Tokens/s Tokens/s per $100 Value score Model fit Power Mem bandwidth Software Noise Beginner pain Verdict" [ref=e22]:
+            - columnheader "GPU" [ref=e23]:
+              - button "GPU" [ref=e24] [cursor=pointer]:
+                - text: GPU
+                - img [ref=e25]
+            - columnheader "VRAM" [ref=e28]:
+              - button "VRAM" [ref=e29] [cursor=pointer]:
+                - text: VRAM
+                - img [ref=e30]
+            - columnheader "New price" [ref=e33]:
+              - button "New price" [ref=e34] [cursor=pointer]:
+                - text: New price
+                - img [ref=e35]
+            - columnheader "Used price" [ref=e38]:
+              - button "Used price" [ref=e39] [cursor=pointer]:
+                - text: Used price
+                - img [ref=e40]
+            - columnheader "Tokens/s" [ref=e43]:
+              - button "Tokens/s" [ref=e44] [cursor=pointer]:
+                - text: Tokens/s
+                - img [ref=e45]
+            - columnheader "Tokens/s per $100" [ref=e48]:
+              - button "Tokens/s per $100" [ref=e49] [cursor=pointer]:
+                - text: Tokens/s per $100
+                - img [ref=e50]
+            - columnheader "Value score" [ref=e53]:
+              - button "Value score" [ref=e54] [cursor=pointer]:
+                - text: Value score
+                - img [ref=e55]
+            - columnheader "Model fit" [ref=e57]:
+              - button "Model fit" [ref=e58] [cursor=pointer]:
+                - text: Model fit
+                - img [ref=e59]
+            - columnheader "Power" [ref=e62]:
+              - button "Power" [ref=e63] [cursor=pointer]:
+                - text: Power
+                - img [ref=e64]
+            - columnheader "Mem bandwidth" [ref=e67]:
+              - button "Mem bandwidth" [ref=e68] [cursor=pointer]:
+                - text: Mem bandwidth
+                - img [ref=e69]
+            - columnheader "Software" [ref=e72]:
+              - button "Software" [ref=e73] [cursor=pointer]:
+                - text: Software
+                - img [ref=e74]
+            - columnheader "Noise" [ref=e77]:
+              - button "Noise" [ref=e78] [cursor=pointer]:
+                - text: Noise
+                - img [ref=e79]
+            - columnheader "Beginner pain" [ref=e82]:
+              - button "Beginner pain" [ref=e83] [cursor=pointer]:
+                - text: Beginner pain
+                - img [ref=e84]
+            - columnheader "Verdict" [ref=e87]:
+              - button "Verdict" [disabled] [ref=e88]
+        - rowgroup [ref=e89]:
+          - 'row "RTX 3090 24GB - $700 Token estimate confidence: estimated 42 t/s 6.00 7.5 good 350W 936 GB/s excellent normal low Best used first serious local AI GPU." [ref=e90]':
+            - cell "RTX 3090" [ref=e91]:
+              - button "RTX 3090" [ref=e92]:
+                - img [ref=e93]
+                - text: RTX 3090
+            - cell "24GB" [ref=e95]
+            - cell "-" [ref=e96]
+            - cell "$700" [ref=e97]
+            - 'cell "Token estimate confidence: estimated 42 t/s" [ref=e98]':
+              - generic [ref=e99]:
+                - 'img "Token estimate confidence: estimated" [ref=e100]'
+                - text: 42 t/s
+            - cell "6.00" [ref=e101]
+            - cell "7.5" [ref=e102]
+            - cell "good" [ref=e103]:
+              - generic [ref=e104]: good
+            - cell "350W" [ref=e105]
+            - cell "936 GB/s" [ref=e106]
+            - cell "excellent" [ref=e107]:
+              - generic [ref=e108]: excellent
+            - cell "normal" [ref=e109]
+            - cell "low" [ref=e110]:
+              - generic [ref=e111]: low
+            - cell "Best used first serious local AI GPU." [ref=e112]
+          - 'row "RTX 4090 24GB $1,800 $1,550 Token estimate confidence: estimated 65 t/s 4.19 4.5 good 450W 1,008 GB/s excellent normal low Fast premium pick, but value depends on price." [ref=e113]':
+            - cell "RTX 4090" [ref=e114]:
+              - button "RTX 4090" [ref=e115]:
+                - img [ref=e116]
+                - text: RTX 4090
+            - cell "24GB" [ref=e118]
+            - cell "$1,800" [ref=e119]
+            - cell "$1,550" [ref=e120]
+            - 'cell "Token estimate confidence: estimated 65 t/s" [ref=e121]':
+              - generic [ref=e122]:
+                - 'img "Token estimate confidence: estimated" [ref=e123]'
+                - text: 65 t/s
+            - cell "4.19" [ref=e124]
+            - cell "4.5" [ref=e125]
+            - cell "good" [ref=e126]:
+              - generic [ref=e127]: good
+            - cell "450W" [ref=e128]
+            - cell "1,008 GB/s" [ref=e129]
+            - cell "excellent" [ref=e130]:
+              - generic [ref=e131]: excellent
+            - cell "normal" [ref=e132]
+            - cell "low" [ref=e133]:
+              - generic [ref=e134]: low
+            - cell "Fast premium pick, but value depends on price." [ref=e135]
+          - 'row "RTX 5090 32GB $2,200 - Token estimate confidence: estimated 92 t/s 4.18 4.4 excellent 575W 1,792 GB/s excellent normal medium Fastest consumer option, but price and power hurt value." [ref=e136]':
+            - cell "RTX 5090" [ref=e137]:
+              - button "RTX 5090" [ref=e138]:
+                - img [ref=e139]
+                - text: RTX 5090
+            - cell "32GB" [ref=e141]
+            - cell "$2,200" [ref=e142]
+            - cell "-" [ref=e143]
+            - 'cell "Token estimate confidence: estimated 92 t/s" [ref=e144]':
+              - generic [ref=e145]:
+                - 'img "Token estimate confidence: estimated" [ref=e146]'
+                - text: 92 t/s
+            - cell "4.18" [ref=e147]
+            - cell "4.4" [ref=e148]
+            - cell "excellent" [ref=e149]:
+              - generic [ref=e150]: excellent
+            - cell "575W" [ref=e151]
+            - cell "1,792 GB/s" [ref=e152]
+            - cell "excellent" [ref=e153]:
+              - generic [ref=e154]: excellent
+            - cell "normal" [ref=e155]
+            - cell "medium" [ref=e156]:
+              - generic [ref=e157]: medium
+            - cell "Fastest consumer option, but price and power hurt value." [ref=e158]
+          - 'row "RX 7900 XTX 24GB $900 $750 Token estimate confidence: estimated 32 t/s 4.27 2.8 good 355W 960 GB/s improving normal medium Great VRAM per dollar if you can handle ROCm tradeoffs." [ref=e159]':
+            - cell "RX 7900 XTX" [ref=e160]:
+              - button "RX 7900 XTX" [ref=e161]:
+                - img [ref=e162]
+                - text: RX 7900 XTX
+            - cell "24GB" [ref=e164]
+            - cell "$900" [ref=e165]
+            - cell "$750" [ref=e166]
+            - 'cell "Token estimate confidence: estimated 32 t/s" [ref=e167]':
+              - generic [ref=e168]:
+                - 'img "Token estimate confidence: estimated" [ref=e169]'
+                - text: 32 t/s
+            - cell "4.27" [ref=e170]
+            - cell "2.8" [ref=e171]
+            - cell "good" [ref=e172]:
+              - generic [ref=e173]: good
+            - cell "355W" [ref=e174]
+            - cell "960 GB/s" [ref=e175]
+            - cell "improving" [ref=e176]:
+              - generic [ref=e177]: improving
+            - cell "normal" [ref=e178]
+            - cell "medium" [ref=e179]:
+              - generic [ref=e180]: medium
+            - cell "Great VRAM per dollar if you can handle ROCm tradeoffs." [ref=e181]
+          - 'row "RTX 6000 Ada 48GB $6,800 $5,400 Token estimate confidence: estimated 70 t/s 1.30 1.6 excellent 300W 960 GB/s excellent normal medium Excellent 48GB workstation card, usually poor value for hobbyists." [ref=e182]':
+            - cell "RTX 6000 Ada" [ref=e183]:
+              - button "RTX 6000 Ada" [ref=e184]:
+                - img [ref=e185]
+                - text: RTX 6000 Ada
+            - cell "48GB" [ref=e187]
+            - cell "$6,800" [ref=e188]
+            - cell "$5,400" [ref=e189]
+            - 'cell "Token estimate confidence: estimated 70 t/s" [ref=e190]':
+              - generic [ref=e191]:
+                - 'img "Token estimate confidence: estimated" [ref=e192]'
+                - text: 70 t/s
+            - cell "1.30" [ref=e193]
+            - cell "1.6" [ref=e194]
+            - cell "excellent" [ref=e195]:
+              - generic [ref=e196]: excellent
+            - cell "300W" [ref=e197]
+            - cell "960 GB/s" [ref=e198]
+            - cell "excellent" [ref=e199]:
+              - generic [ref=e200]: excellent
+            - cell "normal" [ref=e201]
+            - cell "medium" [ref=e202]:
+              - generic [ref=e203]: medium
+            - cell "Excellent 48GB workstation card, usually poor value for hobbyists." [ref=e204]
+          - 'row "Intel Arc Pro B70 32GB $949 - Token estimate confidence: needs verification 24 t/s 2.53 0.7 excellent 230W 608 GB/s improving unknown high Interesting 32GB option, not beginner-proven yet." [ref=e205]':
+            - cell "Intel Arc Pro B70" [ref=e206]:
+              - button "Intel Arc Pro B70" [ref=e207]:
+                - img [ref=e208]
+                - text: Intel Arc Pro B70
+            - cell "32GB" [ref=e210]
+            - cell "$949" [ref=e211]
+            - cell "-" [ref=e212]
+            - 'cell "Token estimate confidence: needs verification 24 t/s" [ref=e213]':
+              - generic [ref=e214]:
+                - 'img "Token estimate confidence: needs verification" [ref=e215]'
+                - text: 24 t/s
+            - cell "2.53" [ref=e216]
+            - cell "0.7" [ref=e217]
+            - cell "excellent" [ref=e218]:
+              - generic [ref=e219]: excellent
+            - cell "230W" [ref=e220]
+            - cell "608 GB/s" [ref=e221]
+            - cell "improving" [ref=e222]:
+              - generic [ref=e223]: improving
+            - cell "unknown" [ref=e224]
+            - cell "high" [ref=e225]:
+              - generic [ref=e226]: high
+            - cell "Interesting 32GB option, not beginner-proven yet." [ref=e227]
+          - 'row "Intel Arc Pro B60 24GB $650 - Token estimate confidence: needs verification 18 t/s 2.77 0.6 good 200W 456 GB/s improving unknown high Interesting 24GB Intel card, but software maturity is the question." [ref=e228]':
+            - cell "Intel Arc Pro B60" [ref=e229]:
+              - button "Intel Arc Pro B60" [ref=e230]:
+                - img [ref=e231]
+                - text: Intel Arc Pro B60
+            - cell "24GB" [ref=e233]
+            - cell "$650" [ref=e234]
+            - cell "-" [ref=e235]
+            - 'cell "Token estimate confidence: needs verification 18 t/s" [ref=e236]':
+              - generic [ref=e237]:
+                - 'img "Token estimate confidence: needs verification" [ref=e238]'
+                - text: 18 t/s
+            - cell "2.77" [ref=e239]
+            - cell "0.6" [ref=e240]
+            - cell "good" [ref=e241]:
+              - generic [ref=e242]: good
+            - cell "200W" [ref=e243]
+            - cell "456 GB/s" [ref=e244]
+            - cell "improving" [ref=e245]:
+              - generic [ref=e246]: improving
+            - cell "unknown" [ref=e247]
+            - cell "high" [ref=e248]:
+              - generic [ref=e249]: high
+            - cell "Interesting 24GB Intel card, but software maturity is the question." [ref=e250]
+          - 'row "A100 40GB PCIe 40GB - $6,500 Token estimate confidence: estimated 78 t/s 1.20 0.1 excellent 250W 1,555 GB/s excellent server jet high Powerful datacenter card, not a normal first-build choice." [ref=e251]':
+            - cell "A100 40GB PCIe" [ref=e252]:
+              - button "A100 40GB PCIe" [ref=e253]:
+                - img [ref=e254]
+                - text: A100 40GB PCIe
+            - cell "40GB" [ref=e256]
+            - cell "-" [ref=e257]
+            - cell "$6,500" [ref=e258]
+            - 'cell "Token estimate confidence: estimated 78 t/s" [ref=e259]':
+              - generic [ref=e260]:
+                - 'img "Token estimate confidence: estimated" [ref=e261]'
+                - text: 78 t/s
+            - cell "1.20" [ref=e262]
+            - cell "0.1" [ref=e263]
+            - cell "excellent" [ref=e264]:
+              - generic [ref=e265]: excellent
+            - cell "250W" [ref=e266]
+            - cell "1,555 GB/s" [ref=e267]
+            - cell "excellent" [ref=e268]:
+              - generic [ref=e269]: excellent
+            - cell "server jet" [ref=e270]
+            - cell "high" [ref=e271]:
+              - generic [ref=e272]: high
+            - cell "Powerful datacenter card, not a normal first-build choice." [ref=e273]
+          - 'row "Tesla P40 24GB - $200 Token estimate confidence: estimated 14 t/s 7.00 < 0.1 tight 250W 346 GB/s painful server jet trap Cheap on paper, bad first local AI card." [ref=e274]':
+            - cell "Tesla P40" [ref=e275]:
+              - button "Tesla P40" [ref=e276]:
+                - img [ref=e277]
+                - text: Tesla P40
+            - cell "24GB" [ref=e279]
+            - cell "-" [ref=e280]
+            - cell "$200" [ref=e281]
+            - 'cell "Token estimate confidence: estimated 14 t/s" [ref=e282]':
+              - generic [ref=e283]:
+                - 'img "Token estimate confidence: estimated" [ref=e284]'
+                - text: 14 t/s
+            - cell "7.00" [ref=e285]
+            - cell "< 0.1" [ref=e286]
+            - cell "tight" [ref=e287]:
+              - generic [ref=e288]: tight
+            - cell "250W" [ref=e289]
+            - cell "346 GB/s" [ref=e290]
+            - cell "painful" [ref=e291]:
+              - generic [ref=e292]: painful
+            - cell "server jet" [ref=e293]
+            - cell "trap" [ref=e294]:
+              - generic [ref=e295]: trap
+            - cell "Cheap on paper, bad first local AI card." [ref=e296]
+    - group [ref=e298]:
+      - generic "Methodology How value is scored" [ref=e299] [cursor=pointer]:
+        - generic [ref=e300]:
+          - paragraph [ref=e301]: Methodology
+          - heading "How value is scored" [level=2] [ref=e302]
+        - img [ref=e303]
+  - contentinfo [ref=e305]:
+    - generic [ref=e306]:
+      - generic [ref=e307]:
+        - paragraph [ref=e308]: bestaigpu.com
+        - paragraph [ref=e309]: Estimates only. Not affiliated with any GPU vendor.
+      - navigation [ref=e310]:
+        - link "Methodology" [ref=e311] [cursor=pointer]:
+          - /url: /#methodology
+        - link "Feedback" [ref=e312] [cursor=pointer]:
+          - /url: mailto:feedback@bestaigpu.com
+        - generic [ref=e313]: "Last updated: 2026-05-04"
+  - button "Open Next.js Dev Tools" [ref=e319] [cursor=pointer]:
+    - img [ref=e320]

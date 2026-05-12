@@ -1,0 +1,184 @@
+[     368ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[     500ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[     741ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon.ico:0
+[     892ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[     968ms] [LOG] [Fast Refresh] done in 226ms @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  733488ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  733629ms] [LOG] [Fast Refresh] done in 43ms @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  738262ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  738406ms] [LOG] [Fast Refresh] done in 52ms @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  743489ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  743612ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  753919ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  754042ms] [LOG] [Fast Refresh] done in 23ms @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  758982ms] [ERROR] ./src/components/gpu-table/columns.tsx:3:1
+Export formatValueScore doesn't exist in target module
+  1 | ...ColumnHelper, type RowData, type SortingFn } from '@tanstack/react-t...
+  2 | ...nDown, ChevronRight } from 'lucide-react'
+> 3 | ...Integer, formatPrice, formatScore, formatTps, formatValueScore } fro...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | ...coredGPU } from '#/lib/scoring'
+  5 | ...enceDot, FitBadge, SoftwareBadge, VerdictBadge } from './badges'
+  6 | ...
+
+The export formatValueScore was not found in module [project]/src/lib/format.ts [app-client] (ecmascript).
+Did you mean to import formatScore?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/gpu-table/columns.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/gpu-table/columns.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:3272
+[  758983ms] [ERROR] ./src/components/gpu-table/columns.tsx:3:1
+Export formatValueScore doesn't exist in target module
+  1 | ...ColumnHelper, type RowData, type SortingFn } from '@tanstack/react-t...
+  2 | ...nDown, ChevronRight } from 'lucide-react'
+> 3 | ...Integer, formatPrice, formatScore, formatTps, formatValueScore } fro...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | ...coredGPU } from '#/lib/scoring'
+  5 | ...enceDot, FitBadge, SoftwareBadge, VerdictBadge } from './badges'
+  6 | ...
+
+The export formatValueScore was not found in module [project]/src/lib/format.ts [app-ssr] (ecmascript).
+Did you mean to import formatScore?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/gpu-table/columns.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/gpu-table/columns.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:3272
+[  759243ms] [ERROR] ./src/components/gpu-table/columns.tsx:3:1
+Export formatValueScore doesn't exist in target module
+  1 | ...ColumnHelper, type RowData, type SortingFn } from '@tanstack/react-t...
+  2 | ...nDown, ChevronRight } from 'lucide-react'
+> 3 | ...Integer, formatPrice, formatScore, formatTps, formatValueScore } fro...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | ...coredGPU } from '#/lib/scoring'
+  5 | ...enceDot, FitBadge, SoftwareBadge, VerdictBadge } from './badges'
+  6 | ...
+
+The export formatValueScore was not found in module [project]/src/lib/format.ts [app-client] (ecmascript).
+Did you mean to import formatScore?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/gpu-table/columns.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/gpu-table/columns.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:3272
+[  759245ms] [ERROR] ./src/components/gpu-table/columns.tsx:3:1
+Export formatValueScore doesn't exist in target module
+  1 | ...ColumnHelper, type RowData, type SortingFn } from '@tanstack/react-t...
+  2 | ...nDown, ChevronRight } from 'lucide-react'
+> 3 | ...Integer, formatPrice, formatScore, formatTps, formatValueScore } fro...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | ...coredGPU } from '#/lib/scoring'
+  5 | ...enceDot, FitBadge, SoftwareBadge, VerdictBadge } from './badges'
+  6 | ...
+
+The export formatValueScore was not found in module [project]/src/lib/format.ts [app-ssr] (ecmascript).
+Did you mean to import formatScore?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/gpu-table/columns.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/gpu-table/columns.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:3272
+[  759288ms] [ERROR] ./src/components/gpu-table/columns.tsx:3:1
+Export formatValueScore doesn't exist in target module
+  1 | ...ColumnHelper, type RowData, type SortingFn } from '@tanstack/react-t...
+  2 | ...nDown, ChevronRight } from 'lucide-react'
+> 3 | ...Integer, formatPrice, formatScore, formatTps, formatValueScore } fro...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | ...coredGPU } from '#/lib/scoring'
+  5 | ...enceDot, FitBadge, SoftwareBadge, VerdictBadge } from './badges'
+  6 | ...
+
+The export formatValueScore was not found in module [project]/src/lib/format.ts [app-client] (ecmascript).
+Did you mean to import formatScore?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/gpu-table/columns.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/gpu-table/columns.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:3272
+[  759290ms] [ERROR] ./src/components/gpu-table/columns.tsx:3:1
+Export formatValueScore doesn't exist in target module
+  1 | ...ColumnHelper, type RowData, type SortingFn } from '@tanstack/react-t...
+  2 | ...nDown, ChevronRight } from 'lucide-react'
+> 3 | ...Integer, formatPrice, formatScore, formatTps, formatValueScore } fro...
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  4 | ...coredGPU } from '#/lib/scoring'
+  5 | ...enceDot, FitBadge, SoftwareBadge, VerdictBadge } from './badges'
+  6 | ...
+
+The export formatValueScore was not found in module [project]/src/lib/format.ts [app-ssr] (ecmascript).
+Did you mean to import formatScore?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import traces:
+  Client Component Browser:
+    ./src/components/gpu-table/columns.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component Browser]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/gpu-table/columns.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuTable.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Client Component SSR]
+    ./src/components/gpu-table/GpuExplorer.tsx [Server Component]
+    ./src/app/page.tsx [Server Component] @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:3272
+[  759348ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  770752ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431
+[  770915ms] [LOG] [Fast Refresh] done in 48ms @ http://localhost:3000/_next/static/chunks/12g__next_dist_11ik4xm._.js:2431

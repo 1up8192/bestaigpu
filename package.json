@@ -8,6 +8,7 @@
         "build": "next build",
         "import": "tsx scripts/import-gpus.ts",
         "import:gpus": "tsx scripts/import-gpus.ts",
+        "dev:sheet": "pnpm import:gpus && next dev",
         "start": "next start",
         "format": "biome format . --write",
         "lint": "biome lint .",

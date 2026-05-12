@@ -205,13 +205,14 @@ Run `pnpm dev` after each step and verify before moving on.
 
 **Visible result:** `git push` deploys the site. The daily cron auto-updates data without manual work.
 
-- [ ] Create Vercel or Cloudflare Pages project, connect repo
-- [ ] Set environment variables in hosting dashboard (`NEXT_PUBLIC_BASE_URL`, `SHEET_CSV_URL`)
+- [ ] Create Cloudflare Pages project, connect repo
+- [ ] Set Cloudflare Pages environment variables (`NEXT_PUBLIC_BASE_URL`, `NODE_VERSION`, `PNPM_VERSION`)
 - [x] Write `.github/workflows/import-gpus.yml`
   - [x] Add `permissions: contents: write` so the workflow can commit updated `gpus.json`
   - [x] Triggers: `workflow_dispatch` + `schedule: cron: "0 6 * * *"`
   - [x] Steps: checkout → pnpm install → run `pnpm import:gpus` → commit changed JSON if diff → push
   - [ ] Add `SHEET_CSV_URL` as GitHub repository secret
+- [x] Add `pnpm-lock.yaml` so GitHub Actions `--frozen-lockfile` installs reliably
 - [ ] Verify the manual trigger works end-to-end (Actions tab → run → check commit)
 - [ ] Verify `robots.ts` sitemap URL resolves with the real base URL
 

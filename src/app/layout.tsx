@@ -1,11 +1,18 @@
 import '../styles/global.css'
 
 import type { Metadata } from 'next'
-import { JetBrains_Mono, Mona_Sans } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import { Footer } from '#/components/layout/Footer'
 
-const fontSans = Mona_Sans({ variable: '--font-sans', subsets: ['latin'] })
 const fontMono = JetBrains_Mono({ variable: '--font-mono', subsets: ['latin'] })
+const themeScript = `(() => {
+  try {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'light' || theme === 'dark') {
+      document.documentElement.dataset.theme = theme;
+    }
+  } catch {}
+})();`
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://bestaigpu.com'),
@@ -38,8 +45,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<React.PropsWithChildren>) {
   return (
-    <html lang="en">
-      <body className={`${fontSans.variable} ${fontMono.variable} font-sans`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${fontMono.variable} font-mono`}>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {children}
         <Footer />
       </body>

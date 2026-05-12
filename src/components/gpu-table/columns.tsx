@@ -1,6 +1,6 @@
 import { createColumnHelper, type RowData, type SortingFn } from '@tanstack/react-table'
 import { ChevronDown, ChevronRight } from 'lucide-react'
-import { formatInteger, formatPrice, formatScore, formatTps } from '#/lib/format'
+import { formatInteger, formatPrice, formatScore, formatTps, formatValueScore } from '#/lib/format'
 import type { ScoredGPU } from '#/lib/scoring'
 import { ConfidenceDot, FitBadge, SoftwareBadge, VerdictBadge } from './badges'
 
@@ -61,7 +61,7 @@ export const gpuColumns = [
     cell: (info) => (
       <button
         type="button"
-        className="inline-flex items-center gap-2 text-left font-semibold text-zinc-950 hover:text-emerald-800"
+        className="inline-flex items-center gap-2 whitespace-nowrap text-left font-semibold text-[var(--color-text-bright)] hover:text-[var(--color-link)]"
         onClick={info.row.getToggleExpandedHandler()}
       >
         {info.row.getIsExpanded() ? (
@@ -109,12 +109,14 @@ export const gpuColumns = [
   columnHelper.accessor('practical_value_score', {
     header: 'Value score',
     cell: (info) => (
-      <span className="font-semibold text-zinc-950">{formatScore(info.getValue())}</span>
+      <span className="font-semibold text-[var(--color-yellow)]">
+        {formatValueScore(info.getValue())}
+      </span>
     ),
     sortingFn: numericSort,
   }),
   columnHelper.accessor('qwen_fit', {
-    header: 'Qwen fit',
+    header: 'Model fit',
     cell: (info) => <FitBadge value={info.getValue()} />,
     meta: {
       hideOnMobile: true,
@@ -171,7 +173,7 @@ export const gpuColumns = [
   }),
   columnHelper.accessor('verdict', {
     header: 'Verdict',
-    cell: (info) => <span className="text-zinc-700">{info.getValue()}</span>,
+    cell: (info) => <span className="text-[var(--color-text)]">{info.getValue()}</span>,
     enableSorting: false,
   }),
 ]
