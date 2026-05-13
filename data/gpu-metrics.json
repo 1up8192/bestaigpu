@@ -1,8 +1,8 @@
 [
     {
         "slug": "rtx-3090",
-        "new_price_usd": null,
-        "used_price_usd": 700,
+        "new_price_usd": 1490,
+        "used_price_usd": 1050,
         "price_mode": "used",
         "price_source_url": "",
         "price_last_checked": "2026-05-04",
@@ -12,8 +12,8 @@
     },
     {
         "slug": "rtx-4090",
-        "new_price_usd": 1800,
-        "used_price_usd": 1550,
+        "new_price_usd": 2755,
+        "used_price_usd": 2450,
         "price_mode": "new_or_used",
         "price_source_url": "",
         "price_last_checked": "2026-05-04",
@@ -23,8 +23,8 @@
     },
     {
         "slug": "rx-7900-xtx",
-        "new_price_usd": 900,
-        "used_price_usd": 750,
+        "new_price_usd": 1200,
+        "used_price_usd": 797,
         "price_mode": "new_or_used",
         "price_source_url": "",
         "price_last_checked": "2026-05-04",
@@ -35,7 +35,7 @@
     {
         "slug": "tesla-p40",
         "new_price_usd": null,
-        "used_price_usd": 200,
+        "used_price_usd": 300,
         "price_mode": "used",
         "price_source_url": "",
         "price_last_checked": "2026-05-04",
@@ -45,7 +45,7 @@
     },
     {
         "slug": "arc-pro-b70",
-        "new_price_usd": 949,
+        "new_price_usd": 1000,
         "used_price_usd": null,
         "price_mode": "new",
         "price_source_url": "https://www.bhphotovideo.com/c/product/1959142-REG/intel_33p01ib0bb_arc_pro_b70_32gb.html",
@@ -56,8 +56,8 @@
     },
     {
         "slug": "rtx-4060-ti-16gb",
-        "new_price_usd": 430,
-        "used_price_usd": 350,
+        "new_price_usd": 570,
+        "used_price_usd": 480,
         "price_mode": "new_or_used",
         "price_source_url": "",
         "price_last_checked": "2026-05-04",
@@ -67,7 +67,7 @@
     },
     {
         "slug": "rtx-5090",
-        "new_price_usd": 2200,
+        "new_price_usd": 3799,
         "used_price_usd": null,
         "price_mode": "new",
         "price_source_url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5090/",
@@ -78,8 +78,8 @@
     },
     {
         "slug": "rtx-3060-12gb",
-        "new_price_usd": 280,
-        "used_price_usd": 200,
+        "new_price_usd": 310,
+        "used_price_usd": 250,
         "price_mode": "new_or_used",
         "price_source_url": "https://nvidianews.nvidia.com/news/nvidia-introduces-geforce-rtx-3060-next-generation-of-the-worlds-most-popular-gpu",
         "price_last_checked": "2026-05-04",
@@ -89,8 +89,8 @@
     },
     {
         "slug": "rtx-6000-ada",
-        "new_price_usd": 6800,
-        "used_price_usd": 5400,
+        "new_price_usd": 6541,
+        "used_price_usd": 5799,
         "price_mode": "new_or_used",
         "price_source_url": "https://www.nvidia.com/en-us/products/workstations/rtx-6000/",
         "price_last_checked": "2026-05-04",
@@ -100,8 +100,8 @@
     },
     {
         "slug": "a100-40gb",
-        "new_price_usd": null,
-        "used_price_usd": 6500,
+        "new_price_usd": 9599,
+        "used_price_usd": 5400,
         "price_mode": "used",
         "price_source_url": "https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/A100-PCIE-Prduct-Brief.pdf",
         "price_last_checked": "2026-05-04",
@@ -111,7 +111,7 @@
     },
     {
         "slug": "arc-pro-b60",
-        "new_price_usd": 650,
+        "new_price_usd": 750,
         "used_price_usd": null,
         "price_mode": "new",
         "price_source_url": "https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2026-03/datasheet-b60-gpu.pdf",
