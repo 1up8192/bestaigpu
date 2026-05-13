@@ -1,13 +1,15 @@
-[ ] design
-[ ] set up sheets
-[ ] data sources
-[ ] set up hosting in half baked state (early SEO)
+[x] design
+[x] set up sheets (basic)
+[x] set up hosting in half baked state (early SEO)
+[ ] data sources and automations(?) in sheets - see docs/data-source-automation-plan.md
 [ ] double check prices and t/s
-[ ] set up SEO google & bing search consoles
+[x] set up SEO google & bing search consoles
 [ ] release! posts on x, linkedin, reddits
 
 [ ] individual gpu pages (generated)
 [ ] gpu vs gpu pages (generated)
+[ ] regions
+[ ] t/s simulator
 [ ] diagrams
 [ ] non gpu
 [ ] full pc builder - prices - links

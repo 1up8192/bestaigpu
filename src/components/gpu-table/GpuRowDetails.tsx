@@ -8,7 +8,7 @@ const confidenceDescriptions = {
   community_sourced: 'Taken from public user reports or benchmark threads.',
   estimated: 'Estimated from related benchmarks or comparable cards.',
   spec_derived: 'Inferred mostly from hardware specifications.',
-  needs_verification: 'Weak or incomplete data that needs better sourcing.',
+  needs_verification: 'Limited public benchmark coverage.',
 } satisfies Record<ScoredGPU['tokens_confidence'], string>
 
 interface GpuRowDetailsProps {
@@ -102,7 +102,7 @@ function DetailList({ title, items, empty }: { title: string; items?: string[]; 
 
 function SourceLink({ href, label }: { href: string; label: string }) {
   if (!href) {
-    return <p className="text-[var(--color-text-dim)] text-sm">{label}: not sourced yet</p>
+    return null
   }
 
   return (

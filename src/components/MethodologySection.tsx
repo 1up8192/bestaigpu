@@ -13,7 +13,7 @@ const confidenceLabels = {
   community_sourced: 'Found from public user reports.',
   estimated: 'Inferred from comparable cards or partial data.',
   spec_derived: 'Based mostly on hardware specifications.',
-  needs_verification: 'Weak or incomplete data that needs better sourcing.',
+  needs_verification: 'Limited public benchmark coverage.',
 } satisfies Record<ScoredGPU['tokens_confidence'], string>
 
 interface MethodologySectionProps {
@@ -102,7 +102,7 @@ practical_value =
               />
               <Caveat
                 title="Price caveats"
-                text="MVP prices are manually maintained and can go stale quickly. Check row source links and last-checked dates before buying."
+                text="Prices are manually maintained and can go stale quickly. Check row source links and last-checked dates before buying."
               />
             </div>
           </div>

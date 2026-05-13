@@ -54,6 +54,14 @@ function label(value: string) {
   return value.replaceAll('_', ' ')
 }
 
+function confidenceLabel(value: TokensConfidence) {
+  if (value === 'needs_verification') {
+    return 'limited data'
+  }
+
+  return label(value)
+}
+
 export function FitBadge({ value }: { value: QwenFit }) {
   return <Badge className={fitStyles[value]}>{label(value)}</Badge>
 }
@@ -69,10 +77,10 @@ export function VerdictBadge({ value }: { value: BeginnerPain }) {
 export function ConfidenceDot({ value }: { value: TokensConfidence }) {
   return (
     <span
-      aria-label={`Token estimate confidence: ${label(value)}`}
+      aria-label={`Token estimate confidence: ${confidenceLabel(value)}`}
       className={cn('inline-block size-2.5 shrink-0 rounded-full', confidenceStyles[value])}
       role="img"
-      title={`Confidence: ${label(value)}`}
+      title={`Confidence: ${confidenceLabel(value)}`}
     />
   )
 }

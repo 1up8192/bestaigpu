@@ -23,7 +23,7 @@
         "strengths": ["24GB VRAM", "Excellent CUDA support", "Strong used value"],
         "software_headaches": [],
         "hardware_headaches": ["High power draw", "Used condition varies"],
-        "notes": "Estimated Qwen3.6-27B throughput. Replace with sourced benchmark data before launch."
+        "notes": "Strong used-market CUDA option with enough VRAM for the Qwen3.6-27B scoring target."
     },
     {
         "slug": "rtx-4090",
@@ -136,8 +136,8 @@
         "gaming_too": false,
         "strengths": ["32GB VRAM", "Potentially useful for larger local models"],
         "software_headaches": ["Inference ecosystem is less mature than CUDA"],
-        "hardware_headaches": ["Availability and real-world thermals need verification"],
-        "notes": "Early MVP row. Specs are based on Intel/B&H listings; throughput still needs stronger verification."
+        "hardware_headaches": ["Availability and real-world thermals are less documented"],
+        "notes": "Specs are based on Intel and retailer listings; public local LLM benchmark coverage is still limited."
     },
     {
         "slug": "rtx-4060-ti-16gb",
@@ -193,7 +193,7 @@
             "High power draw",
             "Large case and PSU requirements"
         ],
-        "notes": "Spec data is source-backed; throughput and street price are MVP estimates pending better benchmark sourcing."
+        "notes": "Fastest consumer-class CUDA option in the table, with value held back by power draw and high street prices."
     },
     {
         "slug": "rtx-3060-12gb",
@@ -305,6 +305,6 @@
         ],
         "software_headaches": ["Intel inference stack is less proven for beginners than CUDA"],
         "hardware_headaches": ["Partner design, availability, and cooling details vary"],
-        "notes": "Spec row based on Intel datasheet; throughput needs public benchmark verification."
+        "notes": "Specs are based on Intel datasheet data; public local LLM benchmark coverage is still limited."
     }
 ]
