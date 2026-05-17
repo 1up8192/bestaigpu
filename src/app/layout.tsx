@@ -3,6 +3,7 @@ import '../styles/global.css'
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import { Footer } from '#/components/layout/Footer'
+import { siteDescription, siteName } from '#/lib/seo'
 
 const fontMono = JetBrains_Mono({ variable: '--font-mono', subsets: ['latin'] })
 const themeScript = `(() => {
@@ -16,16 +17,29 @@ const themeScript = `(() => {
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://bestaigpu.com'),
+  applicationName: siteName,
   title: {
-    default: 'bestaigpu.com',
-    template: '%s | bestaigpu.com',
+    default: 'Best GPUs for Local LLMs in 2026 | AI GPU Value Index',
+    template: `%s | ${siteName}`,
   },
-  description: 'Best value GPU comparison site for local LLM inference.',
+  description: siteDescription,
+  keywords: [
+    'best GPU for local AI',
+    'best GPU for local LLM',
+    'AI GPU benchmark',
+    'local LLM GPU',
+    'used GPU for AI',
+    'RTX 3090 local LLM',
+    'RTX 4090 local AI',
+  ],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: 'bestaigpu.com',
-    description: 'Best value GPU comparison site for local LLM inference.',
+    title: 'Best GPUs for Local LLMs in 2026',
+    description: siteDescription,
     url: '/',
-    siteName: 'bestaigpu.com',
+    siteName,
     images: [
       {
         url: '/favicon.svg',
@@ -36,9 +50,9 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'bestaigpu.com',
-    description: 'Best value GPU comparison site for local LLM inference.',
+    card: 'summary',
+    title: 'Best GPUs for Local LLMs in 2026',
+    description: siteDescription,
     images: ['/favicon.svg'],
   },
 }

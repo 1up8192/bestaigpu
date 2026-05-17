@@ -1,15 +1,14 @@
 import type { MetadataRoute } from 'next'
+import { getBaseUrl } from '#/lib/seo'
 
 export const dynamic = 'force-static'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-
   return {
     rules: {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: baseUrl ? `${baseUrl}/sitemap.xml` : undefined,
+    sitemap: `${getBaseUrl()}/sitemap.xml`,
   }
 }

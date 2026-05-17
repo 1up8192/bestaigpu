@@ -4,6 +4,13 @@ import { ThemeToggle } from '#/components/layout/ThemeToggle'
 import { MethodologySection } from '#/components/MethodologySection'
 import { gpus } from '#/lib/gpu-data'
 import { scoreGpus } from '#/lib/scoring'
+import {
+  createJsonLd,
+  createOpenGraphMetadata,
+  gpuDatasetJsonLd,
+  gpuItemListJsonLd,
+  websiteJsonLd,
+} from '#/lib/seo'
 
 const scoredGpus = [...scoreGpus(gpus)].sort((a, b) => {
   const aScore = a.practical_value_score ?? Number.NEGATIVE_INFINITY
@@ -12,9 +19,24 @@ const scoredGpus = [...scoreGpus(gpus)].sort((a, b) => {
   return bScore - aScore
 })
 
+export const metadata = createOpenGraphMetadata({
+  title: 'Best GPUs for Local LLMs in 2026',
+  path: '/',
+})
+
 export default function Page() {
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: createJsonLd([
+            websiteJsonLd(),
+            gpuDatasetJsonLd(scoredGpus),
+            gpuItemListJsonLd(scoredGpus),
+          ]),
+        }}
+      />
       <div className="mx-auto max-w-[1600px] px-3 pt-8 pb-16 sm:px-6 xl:px-8">
         <div className="mb-5 flex justify-end">
           <ThemeToggle />
@@ -31,7 +53,7 @@ export default function Page() {
             GPU VALUE INDEX
           </p>
           <h1 className="mt-2 font-semibold text-2xl text-[var(--color-text-bright)] tracking-normal sm:text-3xl">
-            Best value GPUs for local LLM-s.
+            Best value GPUs for local LLMs.
           </h1>
           <p className="mt-3 max-w-[78ch] text-[var(--color-text)]">
             Compare GPUs by practical inference value: price, VRAM, model fit, software support,

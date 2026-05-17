@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "AsciiLogoMono";
+    src: url("/fonts/DejaVuSansMono.woff2") format("woff2");
+    font-display: block;
+}
+
 @theme inline {
     --font-sans: var(--font-sans);
     --font-mono: var(--font-mono);
@@ -45,6 +51,11 @@
         @apply min-h-screen scroll-smooth bg-[var(--color-canvas)] text-[var(--color-text)] antialiased;
     }
 
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
     body {
         text-rendering: optimizeLegibility;
         font-size: 16px;
@@ -68,6 +79,20 @@
         body {
             font-size: 14px;
         }
+    }
+}
+
+@layer components {
+    .ascii-logo {
+        font-family: "AsciiLogoMono", monospace;
+        font-synthesis: none;
+        font-kerning: none;
+        font-variant-ligatures: none;
+        font-feature-settings:
+            "liga" 0,
+            "calt" 0;
+        letter-spacing: 0;
+        white-space: pre;
     }
 }
 

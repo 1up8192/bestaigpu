@@ -1,7 +1,9 @@
 import { createColumnHelper, type RowData, type SortingFn } from '@tanstack/react-table'
 import { ChevronDown, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 import { formatInteger, formatPrice, formatScore, formatTps, formatValueScore } from '#/lib/format'
 import type { ScoredGPU } from '#/lib/scoring'
+import { gpuPath } from '#/lib/seo'
 import { ConfidenceDot, FitBadge, SoftwareBadge, VerdictBadge } from './badges'
 
 const columnHelper = createColumnHelper<ScoredGPU>()
@@ -59,18 +61,26 @@ export const gpuColumns = [
     id: 'name',
     header: 'GPU',
     cell: (info) => (
-      <button
-        type="button"
-        className="inline-flex items-center gap-2 whitespace-nowrap text-left font-semibold text-[var(--color-text-bright)] hover:text-[var(--color-link)]"
-        onClick={info.row.getToggleExpandedHandler()}
-      >
-        {info.row.getIsExpanded() ? (
-          <ChevronDown aria-hidden="true" className="shrink-0" size={16} />
-        ) : (
-          <ChevronRight aria-hidden="true" className="shrink-0" size={16} />
-        )}
-        {info.getValue()}
-      </button>
+      <span className="inline-flex items-center gap-2 whitespace-nowrap">
+        <button
+          type="button"
+          aria-label={`${info.row.getIsExpanded() ? 'Collapse' : 'Expand'} ${info.getValue()} details`}
+          className="text-[var(--color-text-bright)] hover:text-[var(--color-link)]"
+          onClick={info.row.getToggleExpandedHandler()}
+        >
+          {info.row.getIsExpanded() ? (
+            <ChevronDown aria-hidden="true" className="shrink-0" size={16} />
+          ) : (
+            <ChevronRight aria-hidden="true" className="shrink-0" size={16} />
+          )}
+        </button>
+        <Link
+          className="font-semibold text-[var(--color-text-bright)] hover:text-[var(--color-link)]"
+          href={gpuPath(info.row.original)}
+        >
+          {info.getValue()}
+        </Link>
+      </span>
     ),
   }),
   columnHelper.accessor('vram_gb', {

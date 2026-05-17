@@ -1,17 +1,20 @@
 [x] design
 [x] set up sheets (basic)
 [x] set up hosting in half baked state (early SEO)
+[ ] analytics
 [ ] data sources and automations(?) in sheets - see docs/data-source-automation-plan.md
 [ ] double check prices and t/s
 [x] set up SEO google & bing search consoles
 [ ] release! posts on x, linkedin, reddits
 
+
+[ ] blog
 [ ] individual gpu pages (generated)
 [ ] gpu vs gpu pages (generated)
 [ ] regions
 [ ] t/s simulator
 [ ] diagrams
-[ ] non gpu
+[ ] non gpu options separate page or table
 [ ] full pc builder - prices - links
 
 model perf data:

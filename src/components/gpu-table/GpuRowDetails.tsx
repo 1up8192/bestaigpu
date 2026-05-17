@@ -1,6 +1,8 @@
 import { ExternalLink } from 'lucide-react'
+import Link from 'next/link'
 import { formatPriceWithLabel, formatTps } from '#/lib/format'
 import type { ScoredGPU } from '#/lib/scoring'
+import { gpuPath } from '#/lib/seo'
 import { SoftwareBadge, VerdictBadge } from './badges'
 
 const confidenceDescriptions = {
@@ -68,6 +70,12 @@ export function GpuRowDetails({ gpu }: GpuRowDetailsProps) {
         </div>
 
         <div className="space-y-2 border-[var(--color-line)] border-t pt-4">
+          <Link
+            className="block text-[var(--color-link)] text-sm hover:text-[var(--color-text-bright)]"
+            href={gpuPath(gpu)}
+          >
+            Full GPU notes
+          </Link>
           <SourceLink href={gpu.price_source_url} label="Price source" />
           <SourceLink href={gpu.tokens_source_url} label="Tokens/s source" />
         </div>

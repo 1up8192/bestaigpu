@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { siteDescription } from '#/lib/seo'
 
 export const dynamic = 'force-static'
 
@@ -6,9 +7,9 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     lang: 'en',
     dir: 'ltr',
-    name: 'bestaigpu.com',
+    name: 'Best AI GPU Value Index',
     short_name: 'bestaigpu',
-    description: 'Best value GPU comparison site for local LLM inference.',
+    description: siteDescription,
     theme_color: '#18181b',
     background_color: '#fafafa',
     start_url: '/',
