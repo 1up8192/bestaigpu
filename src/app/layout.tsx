@@ -3,7 +3,7 @@ import '../styles/global.css'
 import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import { Footer } from '#/components/layout/Footer'
-import { siteDescription, siteName } from '#/lib/seo'
+import { siteDescription, siteName, socialImage } from '#/lib/seo'
 
 const fontMono = JetBrains_Mono({ variable: '--font-mono', subsets: ['latin'] })
 const themeScript = `(() => {
@@ -35,25 +35,37 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/logo64.png', sizes: '64x64', type: 'image/png' },
+      { url: '/logo192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/logo192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/logo512.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: 'Best GPUs for Local LLMs in 2026',
     description: siteDescription,
     url: '/',
     siteName,
     images: [
+      socialImage,
       {
-        url: '/favicon.svg',
-        width: 64,
-        height: 64,
-        alt: 'bestaigpu.com GPU chip icon',
+        url: '/logo512.png',
+        width: 512,
+        height: 512,
+        alt: 'bestaigpu.com logo',
       },
     ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Best GPUs for Local LLMs in 2026',
     description: siteDescription,
-    images: ['/favicon.svg'],
+    images: [socialImage.url],
   },
 }
 

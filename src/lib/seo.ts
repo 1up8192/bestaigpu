@@ -5,6 +5,12 @@ import type { ScoredGPU } from './scoring'
 export const siteName = 'bestaigpu.com'
 export const siteDescription =
   'Compare 2026 GPU value for local AI and LLM inference by VRAM, price, tokens/sec, software support, power, noise, and beginner risk.'
+export const socialImage = {
+  url: '/social-share-1200x630.jpg',
+  width: 1200,
+  height: 630,
+  alt: 'Best AI GPU value index share card',
+}
 
 export function getBaseUrl() {
   return process.env.NEXT_PUBLIC_BASE_URL || 'https://bestaigpu.com'
@@ -56,11 +62,13 @@ export function createOpenGraphMetadata({
       url: path,
       siteName,
       type: 'website',
+      images: [socialImage],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title,
       description,
+      images: [socialImage.url],
     },
   }
 }
