@@ -1,16 +1,31 @@
-import Image from 'next/image'
+const logo = [
+  '██████╗ ███████╗███████╗████████╗',
+  '██╔══██╗██╔════╝██╔════╝╚══██╔══╝',
+  '██████╔╝█████╗  ███████╗   ██║',
+  '██╔══██╗██╔══╝  ╚════██║   ██║',
+  '██████╔╝███████╗███████║   ██║',
+  '╚═════╝ ╚══════╝╚══════╝   ╚═╝',
+  '',
+  ' █████╗ ██╗     ██████╗ ██████╗ ██╗   ██╗',
+  '██╔══██╗██║    ██╔════╝ ██╔══██╗██║   ██║',
+  '███████║██║    ██║  ███╗██████╔╝██║   ██║',
+  '██╔══██║██║    ██║   ██║██╔═══╝ ██║   ██║',
+  '██║  ██║██║    ╚██████╔╝██║     ╚██████╔╝',
+  '╚═╝  ╚═╝╚═╝     ╚═════╝ ╚═╝      ╚═════╝',
+].join('\n')
+
+const logoClassName =
+  'ascii-logo mb-7 overflow-hidden bg-gradient-to-b from-[var(--color-logo-hi)] via-[var(--color-logo-mid)] to-[var(--color-logo-fade)] bg-clip-text font-normal text-transparent leading-[1.02] drop-shadow-[0_0_18px_rgba(255,106,0,0.14)]'
 
 export function AsciiLogo() {
   return (
     <div aria-label="BEST AI GPU" role="img">
-      <Image
-        alt=""
+      <pre
         aria-hidden="true"
-        className="mb-7 h-auto w-full max-w-[420px]"
-        height={512}
-        src="/logo512.png"
-        width={512}
-      />
+        className={`${logoClassName} [font-size:min(14px,calc((100vw-1.5rem)/46))] sm:[font-size:min(14px,calc((100vw-3rem)/46))]`}
+      >
+        {logo}
+      </pre>
     </div>
   )
 }
