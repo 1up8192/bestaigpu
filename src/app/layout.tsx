@@ -38,12 +38,12 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.png', sizes: '64x64', type: 'image/png' },
-      { url: '/logo64.png', sizes: '64x64', type: 'image/png' },
-      { url: '/logo192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/app-icon-64.png', sizes: '64x64', type: 'image/png' },
+      { url: '/app-icon-192.png', sizes: '192x192', type: 'image/png' },
     ],
     apple: [
-      { url: '/logo192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/logo512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/app-icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/app-icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
   },
   openGraph: {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     images: [
       socialImage,
       {
-        url: '/logo512.png',
+        url: '/app-icon-512.png',
         width: 512,
         height: 512,
         alt: 'bestaigpu.com logo',

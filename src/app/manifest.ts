@@ -20,17 +20,17 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
       },
       {
-        src: '/logo64.png',
+        src: '/app-icon-64.png',
         sizes: '64x64',
         type: 'image/png',
       },
       {
-        src: '/logo192.png',
+        src: '/app-icon-192.png',
         sizes: '192x192',
         type: 'image/png',
       },
       {
-        src: '/logo512.png',
+        src: '/app-icon-512.png',
         sizes: '512x512',
         type: 'image/png',
       },
