@@ -45,7 +45,7 @@ export function GpuTable({ data }: GpuTableProps) {
   })
 
   return (
-    <div className="mt-8 space-y-1 xl:mx-3">
+    <div className="mt-8 space-y-1 xl:mx-6">
       <p
         aria-hidden="true"
         className="overflow-hidden whitespace-nowrap text-[var(--color-line)] text-sm"
